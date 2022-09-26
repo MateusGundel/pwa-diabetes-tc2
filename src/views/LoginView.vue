@@ -1,5 +1,5 @@
 <template>
-  <header-app></header-app>
+  <header-app type="login"></header-app>
   <LoginApp></LoginApp>
 </template>
 

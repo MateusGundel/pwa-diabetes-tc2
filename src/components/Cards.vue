@@ -1,13 +1,13 @@
 <template>
   <div class="menu">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <card-item title="Alimentação" link="/inform/alimentacao"></card-item>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <card-item title="Atividades Físicas" link="/inform/atividade_fisica"></card-item>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <card-item title="Pé diabético" link="/inform/pe_diabetico"></card-item>
       </div>
     </div>

@@ -11,15 +11,14 @@
       <div class="col-12">
         <div class="input-group mb-3">
           <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
-          <input type="text" class="form-control" placeholder="Senha" aria-label="Senha">
+          <input type="password" class="form-control" placeholder="Senha" aria-label="Senha">
         </div>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary button-login">Login</button>
+        <button type="submit" class="btn btn-primary button-login">Entrar</button>
       </div>
     </form>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -43,5 +42,6 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem;
 }
 </style>
