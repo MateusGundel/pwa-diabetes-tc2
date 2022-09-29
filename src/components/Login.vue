@@ -1,20 +1,27 @@
 <template>
   <div class="container vertical-center">
-    <form class="row">
+    <form class="row" @submit.prevent="onSubmit">
       <div class="col-12">
         <div class="input-group mb-3">
           <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-          <input type="text" class="form-control" placeholder="Email" aria-label="Email"
-                 aria-describedby="basic-addon1">
+          <input v-model="form.username"
+                 class="form-control"
+                 placeholder="Email"
+                 required>
         </div>
       </div>
       <div class="col-12">
         <div class="input-group mb-3">
           <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
-          <input type="password" class="form-control" placeholder="Senha" aria-label="Senha">
+          <input v-model="form.password"
+                 type="password"
+                 class="form-control"
+                 placeholder="Senha">
         </div>
       </div>
+
       <div class="col-12">
+        <div class="text-danger my-2">{{ userStore.state.error }}</div>
         <button type="submit" class="btn btn-primary button-login">Entrar</button>
       </div>
     </form>
@@ -22,10 +29,25 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {defineComponent, reactive} from 'vue';
+import userStore from '@/stores/user'
 
 export default defineComponent({
   name: 'LoginApp',
+  setup() {
+    const form = reactive({
+      username: '',
+      password: ''
+    })
+
+    const onSubmit = () => {
+      userStore.login(form.username, form.password)
+      form.username = ''
+      form.password = ''
+    }
+
+    return {form, userStore, onSubmit}
+  }
 });
 </script>
 

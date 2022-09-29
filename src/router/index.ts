@@ -23,12 +23,12 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/:catchAll(.*)*',
-        name: "PageNotFound",
+        name: "page_not_found",
         component: PageNotFound,
     },
     {
         path: '/inform/:page',
-        name: "Information",
+        name: "information",
         component: InformationView,
         props: true,
     },
@@ -37,6 +37,17 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    const user = localStorage.getItem('user_token')
+    if (user && to.name === 'login') {
+        next({name: "home"})
+    } else if (user || to.name === 'login') {
+        next()
+    } else {
+        next({name: 'login'})
+    }
 })
 
 export default router

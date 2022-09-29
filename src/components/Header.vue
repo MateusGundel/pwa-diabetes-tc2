@@ -11,7 +11,7 @@
           <a href="/" class="nav-item nav-link active">Home</a>
         </div>
         <div class="navbar-nav ms-auto">
-          <a href="/login" class="nav-item nav-link">Login</a>
+          <a @click="userStore.logout()" class="nav-item nav-link logout-button-link">Sair</a>
         </div>
       </div>
     </div>
@@ -20,12 +20,16 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import userStore from '@/stores/user'
 
 export default defineComponent({
   name: "HeaderApp",
   props: {
     type: String,
   },
+  setup() {
+    return {userStore}
+  }
 });
 </script>
 
@@ -33,5 +37,9 @@ export default defineComponent({
 nav {
   background-color: #145C9E;
   min-height: 56px;
+}
+
+.logout-button-link {
+  cursor: pointer;
 }
 </style>

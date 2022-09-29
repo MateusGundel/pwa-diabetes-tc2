@@ -10,6 +10,12 @@ import {defineComponent} from 'vue';
 import HeaderApp from "@/components/Header.vue";
 
 export default defineComponent({
-  components: {HeaderApp}
+  components: {HeaderApp},
+  setup() {
+    const information = ""
+
+    return information
+  }
+
 });
 </script>
