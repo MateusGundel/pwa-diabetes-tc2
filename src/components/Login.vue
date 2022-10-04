@@ -16,13 +16,15 @@
           <input v-model="form.password"
                  type="password"
                  class="form-control"
-                 placeholder="Senha">
+                 :placeholder="$t('password')">
         </div>
       </div>
-
       <div class="col-12">
         <div class="text-danger my-2">{{ userStore.state.error }}</div>
         <button type="submit" class="btn btn-primary button-login">Entrar</button>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-secondary">{{ $t('create_account') }}</button>
       </div>
     </form>
   </div>
@@ -65,5 +67,9 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   padding: 3rem;
+}
+
+.language-login {
+  padding-top: 2rem;
 }
 </style>

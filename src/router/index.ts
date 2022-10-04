@@ -3,7 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 import AboutView from '../views/AboutView.vue'
-import InformationView from '../views/InformationView.vue'
+import PeDiabeticoInfo from "@/views/PeDiabeticoInfo.vue";
+import AlimentacaoInfo from "@/views/AlimentacaoInfo.vue";
+import AtividadeFisicaInfo from "@/views/AtividadeFisicaInfo.vue";
+import DorisChat from "@/views/DorisChat.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -29,9 +32,27 @@ const router = createRouter({
             component: PageNotFound,
         },
         {
-            path: '/inform/:page',
-            name: "information",
-            component: InformationView,
+            path: '/pe_diabetico',
+            name: "pe_diabetico",
+            component: PeDiabeticoInfo,
+            props: true,
+        },
+        {
+            path: '/alimentacao',
+            name: "alimentacao",
+            component: AlimentacaoInfo,
+            props: true,
+        },
+        {
+            path: '/atividade_fisica',
+            name: "atividade_fisica",
+            component: AtividadeFisicaInfo,
+            props: true,
+        },
+        {
+            path: '/doris',
+            name: "doris",
+            component: DorisChat,
             props: true,
         },
     ]

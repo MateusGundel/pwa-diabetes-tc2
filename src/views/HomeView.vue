@@ -1,5 +1,5 @@
 <template>
-  <header-app></header-app>
+  <header-app actual_page="home"></header-app>
   <cards-menu></cards-menu>
 
 </template>

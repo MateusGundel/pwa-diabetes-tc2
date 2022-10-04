@@ -1,7 +1,7 @@
 <template>
-  <header-app></header-app>
+  <header-app back_button="home"></header-app>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Paagina sobre alimentacao</h1>
   </div>
 </template>
 
