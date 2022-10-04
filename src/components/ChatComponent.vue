@@ -15,11 +15,7 @@
           </div>
           <div class="d-flex flex-row justify-content-end mb-4">
             <div>
-              <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Hiii, I'm good.</p>
-              <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">How are you doing?</p>
-              <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Long time no see! Tomorrow
-                office. will
-                be free on sunday.</p>
+              <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Como cuido dos meus pés?</p>
             </div>
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
                  alt="avatar 1" style="width: 45px; height: 100%;">
@@ -29,9 +25,7 @@
             <img class="avatar" src="../assets/images/doris-sozinha.jpg"
                  alt="avatar 1" style="width: 45px; height: 100%;">
             <div>
-              <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Okay</p>
-              <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">We will go on
-                Sunday?</p>
+              <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Você pode fazer da seguinte forma...</p>
             </div>
           </div>
 
