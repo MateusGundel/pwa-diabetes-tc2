@@ -24,7 +24,7 @@
         <button type="submit" class="btn btn-primary button-login">Entrar</button>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-secondary">{{ $t('create_account') }}</button>
+        <button type="submit" class="btn btn-secondary criar-conta">{{ $t('create_account') }}</button>
       </div>
     </form>
   </div>
@@ -69,7 +69,7 @@ export default defineComponent({
   padding: 3rem;
 }
 
-.language-login {
-  padding-top: 2rem;
+.criar-conta{
+  margin-top: 1rem;
 }
 </style>
