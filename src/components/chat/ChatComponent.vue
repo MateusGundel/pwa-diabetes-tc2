@@ -1,51 +1,107 @@
 <template>
-  <div class="row d-flex justify-content-center h-100">
+  <div class="row d-flex justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-6">
       <div class="card" id="chat">
         <div class="card-body" data-mdb-perfect-scrollbar="true">
-          <chat-card name="doris" message="Olá, como posso te ajudar ?"></chat-card>
-          <chat-card name="user" message="Como cuido dos meus pés?"></chat-card>
-          <chat-card name="doris" message="Você pode fazer da seguinte forma..."></chat-card>
+          <div v-for="chat in chatList" :key="chat">
+
+            <chat-card v-if="chat.response" name="doris" :message="chat.response.response"></chat-card>
+            <chat-card v-else name="user" :message="chat.message"></chat-card>
+
+          </div>
         </div>
         <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-          <input type="text" class="form-control" id="exampleFormControlInput1"
-                 placeholder="Digite uma mensagem...">
-          <a class="ms-3 btn-send-message"><i class="bi bi-send"></i></a>
+          <input v-on:keyup.enter="sendMessage" type="text" class="form-control" id="exampleFormControlInput1"
+                 placeholder="Digite uma mensagem..." v-model="textMessage">
+          <a class="ms-3 btn-send-message" @click="sendMessage()"><i class="bi bi-send"></i></a>
         </div>
       </div>
 
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
 import {defineComponent, ref} from 'vue';
 import {ChatList} from "@/types/chat";
 import ChatCard from "@/components/chat/ChatCard.vue";
+import axios from "axios";
 
 
 export default defineComponent({
   components: {ChatCard},
+  data() {
+    return {textMessage: ""}
+  },
+  created() {
+    this.getChatSession()
+  },
   setup() {
     const chatList = ref<ChatList>([]);
+    // const getChatList = (): ChatList => {
+    //   return [
+    //     {
+    //       response: {
+    //         type: "text",
+    //         response: "teste"
+    //       }
+    //     },
+    //     {
+    //       message: "testeeeeee"
+    //     },
+    //     {
+    //       message: "testeeeeee"
+    //     },
+    //     {
+    //       message: "testeeeeee"
+    //     },
+    //     {
+    //       message: "testeeeeee"
+    //     },
+    //   ];
+    // }
 
-    const getChatList = (): ChatList => {
-      return [
-        {
-          response:  {
-            type: "text",
-            response: "teste"
-          }
-        },
-        {
-          message: "testeeeeee"
-        }
-      ];
-    }
-
-    chatList.value = getChatList();
+    // chatList.value = getChatList();
 
     return {chatList};
+  },
+  methods: {
+    async sendMessage() {
+      let chat = this.chatList;
+      let userMessage = this.textMessage;
+      if (userMessage) {
+        chat.push({message: userMessage});
+        this.textMessage = "";
+        const options = {
+          headers: {'Content-Type': 'application/json'}
+        };
+        const data = JSON.stringify({
+          "message": userMessage,
+          "session": localStorage.getItem('chat_session')
+        });
+        await axios.post(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/message', data, options)
+            .then(function (response) {
+              console.log(response)
+              for (let object of response.data) {
+                chat.push(object);
+              }
+            }).catch(function (error) {
+              console.log(error);
+            })
+      }
+    },
+    async getChatSession() {
+      const options = {
+        headers: {'Content-Type': 'application/json'}
+      };
+      await axios.get(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/session', options)
+          .then(function (response) {
+            localStorage.setItem('chat_session', response.data.session);
+          }).catch(function (error) {
+            console.log(error);
+          })
+    }
   }
 });
 </script>
@@ -53,9 +109,15 @@ export default defineComponent({
 <style scoped>
 #chat {
   height: calc(100vh - 56px);
-}
-.btn-send-message {
-  margin-left: 1rem;
+  border-radius: 0;
 }
 
+.btn-send-message {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.card-body {
+  overflow: scroll;
+}
 </style>

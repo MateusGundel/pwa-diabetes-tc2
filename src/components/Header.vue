@@ -89,4 +89,8 @@ nav {
 .logout-button-link {
   cursor: pointer;
 }
+
+#navbarCollapse{
+  z-index: 10;
+}
 </style>
