@@ -1,19 +1,22 @@
 <template>
-  <header-app actual_page="home"></header-app>
-  <cards-menu></cards-menu>
+  <div class="background-app">
+    <cards-menu></cards-menu>
+  </div>
 
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import HeaderApp from "@/components/Header.vue";
 import CardsMenu from "@/components/Cards.vue";
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     CardsMenu,
-    HeaderApp,
   },
 });
 </script>
+
+<style scoped>
+
+</style>

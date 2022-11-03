@@ -1,19 +1,20 @@
 <template>
-  <div class="menu">
-    <img src="../assets/images/logo_diabetes.png">
-    <div class="row">
-      <div class="col-sm-12">
-        <card-item :title="$t('food_info')" link="/alimentacao"></card-item>
-      </div>
-      <div class="col-sm-12">
-        <card-item :title="$t('physical_activity')" link="/atividade_fisica"></card-item>
-      </div>
-      <div class="col-sm-12">
-        <card-item :title="$t('diabetic_foot')" link="/pe_diabetico"></card-item>
-      </div>
-      <div class="col-sm-12">
-        <card-item :title="$t('chat_doris')" link="/doris"></card-item>
-      </div>
+  <div>
+    <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
+    <p class="doris-fala">Sobre o que você gostaria de conversar comigo?</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <card-item title="Alimentação" link="/doris"></card-item>
+    </div>
+    <div class="col-sm-12">
+      <card-item title="Atividade Física" link="/doris"></card-item>
+    </div>
+    <div class="col-sm-12">
+      <card-item title="Rótulos" link="/doris"></card-item>
+    </div>
+    <div class="col-sm-12">
+      <card-item title="Pé diabético" link="/doris"></card-item>
     </div>
   </div>
 </template>
@@ -29,22 +30,31 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.menu {
-  padding: 1.5rem 3rem;
-}
 
 @media (max-width: 600px) {
   .menu img {
-    max-width: 80%;
-    padding-bottom: 1.5rem;
+    max-width: 50%;
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (min-width: 600px) {
   .menu img {
     max-width: 20%;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
   }
+}
+
+.doris-image {
+  border-radius: 100%;
+  margin-top: 2rem;
+}
+
+.doris-fala {
+  padding: 1rem 0 2rem 0;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
 }
 
 </style>

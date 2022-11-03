@@ -21,7 +21,14 @@ export default defineComponent({
 
 <style scoped>
 .card {
-  background-color: #dcc7be;
+  background-color: #ffffff;
   margin-bottom: 1.5rem;
+  color: #145C9E;
+  border-radius: 20px;
 }
+
+.card-title {
+  font-weight: bold;
+}
+
 </style>

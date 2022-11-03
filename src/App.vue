@@ -9,18 +9,25 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
 }
 
-nav {
-  padding: 30px;
+.background-app {
+  background-image: url("/src/assets/images/fondo.png");
+  height: 100%;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+@media (max-width: 600px) {
+  .background-app {
+    padding: 1.5rem 3rem;
+    background-size: 100%;
+  }
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+@media (min-width: 600px) {
+  .background-app {
+    padding: 10vh 30vw;
+    background-size: 35%;
+  }
 }
 </style>
