@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-12">
       <card-item title="Pé diabético" link="/doris"></card-item>
-    </div>
+    </div>0
   </div>
 </template>
 

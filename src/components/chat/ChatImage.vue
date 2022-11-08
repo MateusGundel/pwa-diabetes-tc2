@@ -1,9 +1,9 @@
 <template>
 
-  <img v-if="name === 'doris'" class="avatar" src="../../assets/images/doris-sozinha.jpg"
-       :alt="name" style="width: 45px; height: 100%;">
-  <img v-else class="avatar" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-       :alt="name" style="width: 45px; height: 100%;">
+  <img v-if="type === 'doris'" class="avatar" src="../../assets/images/doris-sozinha.jpg"
+       :alt="type" style="width: 45px; height: 100%;">
+  <img v-else class="avatar" src="../../assets/images/user-avatar.png"
+       :alt="type" style="width: 45px; height: 100%;">
 </template>
 
 <script>
@@ -11,7 +11,7 @@
 export default {
   name: "ChatImage",
   props: {
-    name: String,
+    type: String,
   }
 }
 </script>

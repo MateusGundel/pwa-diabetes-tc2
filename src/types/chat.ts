@@ -1,20 +1,7 @@
-type response = {
-    type : 'text';
-    response: string;
+export type Message = {
+    type: string,
+    message: string,
+    options?: string[]
 }
 
-type option = {
-    label: string;
-    value:string;
-}
-
-export type ChatResponse = {
-    response: response;
-    options?: option[]
-}
-
-export type UserMessage = {
-    message: string;
-}
-
-export type ChatList = (UserMessage | ChatResponse)[]
+export type ChatList = Message[]

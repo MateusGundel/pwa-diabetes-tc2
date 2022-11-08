@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark header">
     <div class="container-fluid">
-      <a v-if="back_button === 'home'" href="/" class="navbar-brand"><i class="bi bi-arrow-left"></i></a>
+      <a v-if="back_button === 'home'" href="/home" class="navbar-brand"><i class="bi bi-arrow-left"></i></a>
       <a v-else class="navbar-brand"></a>
       <!--      <button type="button" class="navbar-toggler" data-bs-toggle="collapse"-->
       <!--              data-bs-target="#navbarCollapse">-->
@@ -36,5 +36,8 @@ export default defineComponent({
 nav {
   background-color: #3C3A6C;
   min-height: 56px;
+}
+header{
+  max-height: var(--header-height);
 }
 </style>

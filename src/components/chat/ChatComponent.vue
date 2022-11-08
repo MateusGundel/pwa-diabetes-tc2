@@ -1,13 +1,10 @@
 <template>
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-6">
-      <div class="card" id="chat">
-        <div class="card-body" data-mdb-perfect-scrollbar="true">
+  <div class="row d-flex justify-content-center calculated-height">
+    <div class="col-md-10 col-lg-8 col-xl-6 h-100">
+      <div class="card h-100" id="chat">
+        <div class="card-body">
           <div v-for="chat in chatList" :key="chat">
-
-            <chat-card v-if="chat.response" name="doris" :message="chat.response.response"></chat-card>
-            <chat-card v-else name="user" :message="chat.message"></chat-card>
-
+            <chat-card :chat_object="chat" v-on:send-message="sendMessage"></chat-card>
           </div>
         </div>
         <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
@@ -41,43 +38,34 @@ export default defineComponent({
     const chatList = ref<ChatList>([]);
     // const getChatList = (): ChatList => {
     //   return [
-    //     {
-    //       response: {
-    //         type: "text",
-    //         response: "teste"
-    //       }
-    //     },
-    //     {
-    //       message: "testeeeeee"
-    //     },
-    //     {
-    //       message: "testeeeeee"
-    //     },
-    //     {
-    //       message: "testeeeeee"
-    //     },
-    //     {
-    //       message: "testeeeeee"
-    //     },
+    //     {message: "alimentação", type: "user"},
+    //     {message: "?????", type: "doris", options: ["teste", "teste3"]}
     //   ];
     // }
-
+    //
     // chatList.value = getChatList();
 
     return {chatList};
   },
   methods: {
-    async sendMessage() {
+    async sendMessage(message?: string) {
       let chat = this.chatList;
-      let userMessage = this.textMessage;
-      if (userMessage) {
-        chat.push({message: userMessage});
+      if (!message) {
+        message = this.textMessage;
+      }
+      this.chatList.forEach((element) => {
+        if (element.options) {
+          delete element['options']
+        }
+      })
+      if (message) {
+        chat.push({message: message, type: 'user'});
         this.textMessage = "";
         const options = {
           headers: {'Content-Type': 'application/json'}
         };
         const data = JSON.stringify({
-          "message": userMessage,
+          "message": message,
           "session": localStorage.getItem('chat_session')
         });
         await axios.post(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/message', data, options)
@@ -98,17 +86,28 @@ export default defineComponent({
       await axios.get(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/session', options)
           .then(function (response) {
             localStorage.setItem('chat_session', response.data.session);
+            console.log("new requested")
           }).catch(function (error) {
             console.log(error);
           })
+    },
+    async teste(param: string) {
+      console.log(param)
     }
   }
 });
 </script>
 
 <style scoped>
+.calculated-height {
+  height: calc(100% - var(--header-height));
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
 #chat {
-  height: calc(100vh - 56px);
   border-radius: 0;
 }
 
