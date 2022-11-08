@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-          <input v-on:keyup.enter="sendMessage" type="text" class="form-control" id="exampleFormControlInput1"
+          <input v-on:keyup.enter="sendMessage()" type="text" class="form-control" id="exampleFormControlInput1"
                  placeholder="Digite uma mensagem..." v-model="textMessage">
           <a class="ms-3 btn-send-message" @click="sendMessage()"><i class="bi bi-send"></i></a>
         </div>
@@ -50,6 +50,7 @@ export default defineComponent({
   methods: {
     async sendMessage(message?: string) {
       let chat = this.chatList;
+      console.log(message)
       if (!message) {
         message = this.textMessage;
       }
@@ -89,10 +90,11 @@ export default defineComponent({
             console.log("new requested")
           }).catch(function (error) {
             console.log(error);
-          })
-    },
-    async teste(param: string) {
-      console.log(param)
+          });
+      let start_message = localStorage.getItem('start_message');
+      if (start_message) {
+        await this.sendMessage(start_message);
+      }
     }
   }
 });
@@ -119,4 +121,4 @@ export default defineComponent({
 .card-body {
   overflow: scroll;
 }
-</style>
+</style>/

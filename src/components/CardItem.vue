@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
     </div>
-    <a :href="link" class="stretched-link"></a>
+    <a @click="addSessionRedirect(title)" class="stretched-link"></a>
   </div>
 </template>
 
@@ -16,6 +16,12 @@ export default defineComponent({
     title: String,
     link: String,
   },
+  methods: {
+    async addSessionRedirect(message: string) {
+      localStorage.setItem('start_message', message);
+      this.$router.push({name: "doris"})
+    }
+  }
 });
 </script>
 
@@ -25,6 +31,7 @@ export default defineComponent({
   margin-bottom: 1.5rem;
   color: #145C9E;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .card-title {
