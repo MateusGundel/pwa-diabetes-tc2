@@ -1,4 +1,9 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+const {defineConfig} = require('@vue/cli-service')
+module.exports = {
+    pwa: {
+        name: 'Cuidados Diabetes',
+        workboxOptions: {
+            exclude: ['_redirects'],
+        }
+    }
+}
