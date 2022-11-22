@@ -9,6 +9,7 @@ import WelcomeDoris from "@/views/WelcomeDoris.vue";
 import WelcomeDorisVoce from "@/views/WelcomeDorisVoce.vue";
 import AutocuidadoView from "@/views/AutocuidadoView.vue";
 import DiabetesView from "@/views/DiabetesView.vue";
+import EntryMenuView from "@/views/EntryMenuView.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,11 @@ const router = createRouter({
             path: '/',
             name: 'entry',
             component: EntryView
+        },
+        {
+            path: '/entry_menu',
+            name: 'entry_menu',
+            component: EntryMenuView
         },
         {
             path: '/welcome_doris',

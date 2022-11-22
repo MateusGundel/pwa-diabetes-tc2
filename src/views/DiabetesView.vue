@@ -4,7 +4,7 @@
     <div class="body">
       <div class="diabetes">
         <p class="title"><b>Diabetes</b></p>
-        <img src="../assets/images/saiba_mais_dm.png">
+        <img src="../assets/images/diabetes-view.jpeg">
         <p class="info">A diabetes é uma condição em que os níveis de açúcar no sangue (glicemia) ficam elevados devido
           a algum
           problema que ocorre no pâncreas, que produz pouca/ou que não consegue produzir insulina. É a insulina que
@@ -17,8 +17,9 @@
           da saúde como um todo faz parte do tratamento e auxilia na manutenção de um estado de saúde mais adequado.</p>
       </div>
       <div class="doris">
-        <a href="/home" class="next-page"><img class="doris-image"
-                                               src="../assets/images/doris-sozinha.jpg"></a>
+        <button v-on:click="this.$router.push('home') " class="btn btn-info">Falar com a Dóris</button>
+<!--        <a href="/home" class="next-page"><img class="doris-image"-->
+<!--                                               src="../assets/images/doris-sozinha.jpg"></a>-->
       </div>
     </div>
 
@@ -49,9 +50,15 @@ export default defineComponent({
 }
 
 .doris {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
+.doris .btn {
+  background-color: #145C9E;
+  border-color: #145C9E;
+  color: #ffffff;
+  padding: 0.2rem 2rem 0.2rem 2rem;
+}
 .next-page i {
   color: #145C9E;
   font-size: 60px;
@@ -68,4 +75,5 @@ export default defineComponent({
   margin-bottom: 1rem;
   border: #3C3A6C solid 2px;
 }
+
 </style>

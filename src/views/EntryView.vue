@@ -1,7 +1,7 @@
 <template>
   <div class="entry background-app">
     <img class="logo-app" src="../assets/images/logo-text.png">
-    <button v-on:click="this.$router.push('welcome_doris') " class="btn btn-info">Entrar</button>
+    <button v-on:click="this.$router.push('entry_menu') " class="btn btn-info">Entrar</button>
   </div>
 </template>
 

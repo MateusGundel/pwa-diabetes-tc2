@@ -10,12 +10,13 @@
           capacidade de tomar decisões frente aos desafios do dia a dia.</p>
         <p>Sabemos que para quem vive com diabetes, o autocuidado é uma ferramenta essencial, para lidar com as mudanças
           no estilo de vida e para seguir com os tratamentos indicados.</p>
-        <button v-on:click="this.$router.push('diabetes')" class="btn btn-primary">Saiba mais</button>
+        <button v-on:click="this.$router.push('diabetes')" class="btn btn-primary">Saiba mais sobre diabetes</button>
       </div>
       <div class="doris">
         <p><b>Vamos lá! Estou aqui para te ajudar no seu autocuidado.</b></p>
-        <a href="/home" class="next-page"><img class="doris-image"
-                                               src="../assets/images/doris-sozinha.jpg"></a>
+        <button v-on:click="this.$router.push('home') " class="btn btn-info">Falar com a Dóris</button>
+<!--        <a href="/home" class="next-page"><img class="doris-image"-->
+<!--                                               src="../assets/images/doris-sozinha.jpg"></a>-->
       </div>
     </div>
 
@@ -56,5 +57,12 @@ export default defineComponent({
 .doris {
   padding-top: 3rem;
 }
+.welcome .btn {
+  background-color: #145C9E;
+  border-color: #145C9E;
+  color: #ffffff;
+  padding: 0.2rem 2rem 0.2rem 2rem;
+}
+
 
 </style>
