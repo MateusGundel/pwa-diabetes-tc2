@@ -3,6 +3,10 @@
     <div class="col-md-10 col-lg-8 col-xl-6 h-100">
       <div class="card h-100" id="chat">
         <div class="card-body">
+          <audio controls="controls" id="audio" loop>
+            Your browser does not support the &lt;audio&gt; tag.
+            <source id="source" src="" type="audio/wav"/>
+          </audio>
           <div v-for="chat in chatList" :key="chat">
             <chat-card :chat_object="chat" v-on:send-message="sendMessage"></chat-card>
           </div>
@@ -32,10 +36,12 @@ export default defineComponent({
     return {textMessage: ""}
   },
   created() {
-    this.getChatSession()
+    this.getChatSession();
   },
   setup() {
     const chatList = ref<ChatList>([]);
+    var audioList: string[] = []
+    const running_audios = false;
     // const getChatList = (): ChatList => {
     //   return [
     //     {message: "alimentação", type: "user"},
@@ -45,11 +51,13 @@ export default defineComponent({
     //
     // chatList.value = getChatList();
 
-    return {chatList};
+    return {chatList, audioList, running_audios};
   },
   methods: {
     async sendMessage(message?: string) {
       let chat = this.chatList;
+      let audios = this.audioList;
+      let runAudios = this.runAudios;
       console.log(message)
       if (!message) {
         message = this.textMessage;
@@ -71,10 +79,13 @@ export default defineComponent({
         });
         await axios.post(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/message', data, options)
             .then(function (response) {
-              console.log(response)
               for (let object of response.data) {
+                if (object.audio) {
+                  audios.push(object.audio);
+                }
                 chat.push(object);
               }
+              runAudios();
             }).catch(function (error) {
               console.log(error);
             })
@@ -87,13 +98,35 @@ export default defineComponent({
       await axios.get(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/watson/session', options)
           .then(function (response) {
             localStorage.setItem('chat_session', response.data.session);
-            console.log("new requested")
           }).catch(function (error) {
             console.log(error);
           });
       let start_message = localStorage.getItem('start_message');
       if (start_message) {
         await this.sendMessage(start_message);
+      }
+    },
+    async runAudios() {
+      if (!this.running_audios) {
+        this.running_audios = true;
+        const audio_element = document.getElementById('audio') as HTMLAudioElement | null;
+        const source_element = document.getElementById('source') as HTMLSourceElement | null;
+        if (audio_element != null && source_element != null) {
+          let audio_data = this.audioList.shift();
+          source_element.src = "data:audio/wav;base64," + audio_data;
+          audio_element.loop = false;
+          audio_element.load();
+          await audio_element.play();
+          audio_element.addEventListener('ended', () => {
+            this.runNextAudio();
+          })
+        }
+      }
+    },
+    async runNextAudio() {
+      this.running_audios = false;
+      if (this.audioList.length > 0) {
+        await this.runAudios();
       }
     }
   }

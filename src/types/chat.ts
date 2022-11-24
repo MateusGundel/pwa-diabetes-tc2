@@ -5,3 +5,4 @@ export type Message = {
 }
 
 export type ChatList = Message[]
+export type AudioList = string[]
