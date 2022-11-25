@@ -3,9 +3,13 @@
     <header-app></header-app>
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
-      <p class="doris-fala">Olá, eu sou a Dóris. Estou aqui para te mostrar dicas e informações que vão te ajudar a
-        cuidar da sua saúde e da diabetes. Minha missão é contribuir para o seu bem-estar e sua qualidade de vida.</p>
-      <a href="/welcome_doris_voce" class="next-page"><i class="bi bi-arrow-right-circle-fill"></i></a>
+      <div class="doris-fala">
+      <p class="">Olá, eu sou a Dóris.</p>
+      <p class="">Sou uma assistente virtual e vou conversar com você. Estou aqui para te
+        mostrar dicas e informações que vão te ajudar a cuidar da sua saúde e da diabetes. Minha missão é contribuir
+        para o seu bem-estar e sua qualidade de vida.</p>
+      </div>
+      <a href="/welcome_doris_instructions" class="next-page"><i class="bi bi-arrow-right-circle-fill"></i></a>
     </div>
 
   </div>
@@ -36,11 +40,11 @@ export default defineComponent({
 
 .doris-fala {
   margin: 4rem 0 2rem 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: black;
 }
 
-.next-page i{
+.next-page i {
   color: #145C9E;
   font-size: 60px;
 }

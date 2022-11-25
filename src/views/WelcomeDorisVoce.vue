@@ -4,7 +4,7 @@
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
       <div class="textos">
-        <p>Primeiramente, quero te apresentar alguém muito importante.</p>
+        <p>Inicialmente, quero te apresentar alguém muito importante.</p>
         <p>Isso mesmo, tem uma pessoa que é muito importante e especial para sua vida.</p>
         <p><b>Sabe quem é? Você!</b></p>
         <p>Você é a pessoa mais importante para a sua vida e para cuidar da sua saúde.</p>

@@ -10,6 +10,7 @@ import WelcomeDorisVoce from "@/views/WelcomeDorisVoce.vue";
 import AutocuidadoView from "@/views/AutocuidadoView.vue";
 import DiabetesView from "@/views/DiabetesView.vue";
 import EntryMenuView from "@/views/EntryMenuView.vue";
+import WelcomeDorisInstructions from "@/views/WelcomeDorisInstructions.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,6 +34,11 @@ const router = createRouter({
             path: '/welcome_doris_voce',
             name: 'welcome_doris_voce',
             component: WelcomeDorisVoce
+        },
+        {
+            path: '/welcome_doris_instructions',
+            name: 'welcome_doris_instructions',
+            component: WelcomeDorisInstructions
         },
         {
             path: '/diabetes',
