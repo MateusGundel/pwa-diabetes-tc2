@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <header-app></header-app>
+    <header-app back_button="welcome_doris_voce"></header-app>
     <div class="body">
       <div class="autocuidado-view">
         <p><b>Autocuidado</b></p>
@@ -10,13 +10,11 @@
           capacidade de tomar decisões frente aos desafios do dia a dia.</p>
         <p>Sabemos que para quem vive com diabetes, o autocuidado é uma ferramenta essencial, para lidar com as mudanças
           no estilo de vida e para seguir com os tratamentos indicados.</p>
-        <button v-on:click="this.$router.push('diabetes')" class="btn btn-primary">Saiba mais sobre diabetes</button>
+        <router-link class="btn btn-info" :to="{name: 'diabetes'}">Saiba mais sobre diabetes</router-link>
       </div>
       <div class="doris">
         <p><b>Vamos lá! Estou aqui para te ajudar no seu autocuidado.</b></p>
-        <button v-on:click="this.$router.push('home') " class="btn btn-info">Falar com a Dóris</button>
-<!--        <a href="/home" class="next-page"><img class="doris-image"-->
-<!--                                               src="../assets/images/doris-sozinha.jpg"></a>-->
+        <router-link class="btn btn-info" :to="{name: 'welcome_doris_instructions'}">Falar com a Dóris</router-link>
       </div>
     </div>
 
@@ -26,11 +24,14 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import HeaderApp from "@/components/Header.vue";
+import userStore from "@/stores/user";
 
 export default defineComponent({
   name: 'WelcomeDoris',
   components: {HeaderApp},
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 
 });
 </script>
@@ -49,6 +50,7 @@ export default defineComponent({
 .autocuidado-view {
   padding-top: 2rem;
 }
+
 .autocuidado-view .btn {
   background-color: #145C9E;
   border-color: #145C9E;
@@ -57,6 +59,7 @@ export default defineComponent({
 .doris {
   padding-top: 3rem;
 }
+
 .welcome .btn {
   background-color: #145C9E;
   border-color: #145C9E;
