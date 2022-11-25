@@ -7,9 +7,13 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import userStore from "@/stores/user";
 
 export default defineComponent({
-  name: "PageNotFound"
+  name: "PageNotFound",
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 });
 </script>
 

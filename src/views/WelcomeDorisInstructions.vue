@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <header-app></header-app>
+    <header-app back_button="autocuidado"></header-app>
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
       <div class="textos">
@@ -12,7 +12,8 @@
         <img src="../assets/images/instrucao-1.png">
         <p>Para interagir comigo, pode usar os botões com as sugestões ou então escrever alguma coisa.</p>
       </div>
-      <a href="/welcome_doris_voce" class="next-page"><i class="bi bi-arrow-right-circle-fill"></i></a>
+      <router-link class="next-page" :to="{name: 'home'}"><i class="bi bi-arrow-right-circle-fill"></i>
+      </router-link>
     </div>
 
   </div>
@@ -21,11 +22,14 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import HeaderApp from "@/components/Header.vue";
+import userStore from "@/stores/user";
 
 export default defineComponent({
   name: 'WelcomeDoris2',
   components: {HeaderApp},
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 });
 </script>
 
