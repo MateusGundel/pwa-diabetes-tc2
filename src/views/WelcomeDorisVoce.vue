@@ -8,7 +8,7 @@
         <p>Isso mesmo, tem uma pessoa que é muito importante e especial para sua vida.</p>
         <p><b>Sabe quem é? Você!</b></p>
         <p>Você é a pessoa mais importante para a sua vida e para cuidar da sua saúde.</p>
-        <p>Sabe por que? Porque quando você consegue cuidar de si mesmo, se sentir bem, ficar feliz e orgulhoso de si
+        <p>Sabe por quê? Porque quando você consegue cuidar de si mesmo, se sentir bem, ficar feliz e orgulhoso de si
           mesmo e também com o mundo ao seu redor, a vida fica mais leve e mais tranquila.</p>
         <p><b>E você sabe como isso se chama? Autocuidado.</b></p>
       </div>
