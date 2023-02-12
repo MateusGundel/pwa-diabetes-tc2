@@ -1,16 +1,19 @@
 <template>
   <div class="entry background-app">
     <img class="logo-app" src="../assets/images/logo-text.png">
-    <button v-on:click="this.$router.push('entry_menu') " class="btn btn-info">Entrar</button>
+    <router-link class="btn btn-info" :to="{name: 'entry_menu'}">Entrar</router-link>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import userStore from "@/stores/user";
 
 export default defineComponent({
   name: 'EntryView',
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 });
 </script>
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <header-app></header-app>
+    <header-app back_button="autocuidado"></header-app>
     <div class="body">
       <div class="diabetes">
         <p class="title"><b>Diabetes</b></p>
@@ -17,9 +17,7 @@
           da saúde como um todo faz parte do tratamento e auxilia na manutenção de um estado de saúde mais adequado.</p>
       </div>
       <div class="doris">
-        <button v-on:click="this.$router.push('home') " class="btn btn-info">Falar com a Dóris</button>
-<!--        <a href="/home" class="next-page"><img class="doris-image"-->
-<!--                                               src="../assets/images/doris-sozinha.jpg"></a>-->
+        <button v-on:click="this.$router.push('welcome_doris_instructions') " class="btn btn-info">Falar com a Dóris</button>
       </div>
     </div>
 
@@ -29,11 +27,14 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import HeaderApp from "@/components/Header.vue";
+import userStore from "@/stores/user";
 
 export default defineComponent({
   name: 'AutocuidadoView',
   components: {HeaderApp},
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 
 });
 </script>

@@ -9,10 +9,13 @@
 import {defineComponent} from 'vue';
 import HeaderApp from "@/components/Header.vue";
 import ChatComponent from "@/components/chat/ChatComponent.vue";
+import userStore from "@/stores/user";
 
 export default defineComponent({
   components: {HeaderApp, ChatComponent},
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 });
 </script>
 

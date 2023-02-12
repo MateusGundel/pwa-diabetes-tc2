@@ -1,19 +1,23 @@
 <template>
   <div class="entry background-app">
+    <router-link class="back" :to="{name: 'entry'}"><i class="bi bi-arrow-left"></i></router-link>
     <img class="logo-app" src="../assets/images/logo-text.png">
     <div class="buttons">
-      <button v-on:click="this.$router.push('welcome_doris') " class="btn btn-info">Tutorial</button>
-      <button v-on:click="this.$router.push('home') " class="btn btn-info">Chat com a Dóris</button>
+      <router-link class="btn btn-info" :to="{name: 'welcome_doris'}">Tutorial</router-link>
+      <router-link class="btn btn-info" :to="{name: 'home'}">Chat com a Dóris</router-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import userStore from "@/stores/user";
 
 export default defineComponent({
   name: 'EntryView',
-
+  created() {
+    userStore.saveAction(window.location.pathname, 'url');
+  }
 });
 </script>
 <style scoped>
@@ -56,5 +60,12 @@ export default defineComponent({
   padding: 0.2rem 2rem 0.2rem 2rem;
 }
 
+.back {
+  align-self: flex-start;
+}
 
+.back i {
+  color: white;
+  font-size: 20px;
+}
 </style>

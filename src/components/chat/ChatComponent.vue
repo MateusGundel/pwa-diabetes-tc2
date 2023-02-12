@@ -28,6 +28,7 @@ import {defineComponent, ref} from 'vue';
 import {ChatList} from "@/types/chat";
 import ChatCard from "@/components/chat/ChatCard.vue";
 import axios from "axios";
+import userStore from "@/stores/user";
 
 
 export default defineComponent({
@@ -59,6 +60,7 @@ export default defineComponent({
       let audios = this.audioList;
       let runAudios = this.runAudios;
       console.log(message)
+
       if (!message) {
         message = this.textMessage;
       }
@@ -89,6 +91,7 @@ export default defineComponent({
             }).catch(function (error) {
               console.log(error);
             })
+        await userStore.saveAction(message, 'chat');
       }
     },
     async getChatSession() {

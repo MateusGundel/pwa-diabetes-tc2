@@ -29,7 +29,15 @@ const actions = {
     async logout() {
         localStorage.removeItem("user_token")
         await router.push('/login')
+    },
+    async saveAction(value: string, type: string) {
+        await axios.post(process.env.VUE_APP_URL_API_DIABETES + '/api/v1/action', {
+            value: value,
+            type: type,
+            user_hash: localStorage.getItem('user_hash')
+        }, {headers: {'Content-Type': 'application/json'}})
     }
 }
+
 
 export default {state, ...actions}
