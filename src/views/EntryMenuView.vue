@@ -4,7 +4,7 @@
     <img class="logo-app" src="../assets/images/logo-text.png">
     <div class="buttons">
       <router-link class="btn btn-info" :to="{name: 'welcome_doris'}">Tutorial</router-link>
-      <router-link class="btn btn-info" :to="{name: 'home'}">Chat com a Dóris</router-link>
+      <router-link class="btn btn-info" :to="{name: 'home'}">Chat with Dóris</router-link>
     </div>
   </div>
 </template>

@@ -5,19 +5,11 @@
       <div class="diabetes">
         <p class="title"><b>Diabetes</b></p>
         <img src="../assets/images/diabetes-view.jpeg">
-        <p class="info">A diabetes é uma condição em que os níveis de açúcar no sangue (glicemia) ficam elevados devido
-          a algum
-          problema que ocorre no pâncreas, que produz pouca/ou que não consegue produzir insulina. É a insulina que
-          reduz os níveis de açúcar no sangue, permitindo que a glicose presente na corrente sanguínea, proveniente da
-          nossa alimentação, entre nas células corporais e seja convertida em energia.</p>
-        <p class="info">Quando a glicose fica elevada no sangue (hiperglicemia) por longos períodos podem acontecer
-          complicações a
-          longo prazo. Para regular e evitar tudo isso, são indicados medicamentos e dependendo do caso, aplicação de
-          insulina. Mas além disso, ter bons hábitos de saúde são a chave do sucesso no tratamento da diabetes. Cuidar
-          da saúde como um todo faz parte do tratamento e auxilia na manutenção de um estado de saúde mais adequado.</p>
+        <p class="info">Diabetes is a condition in which the levels of blood sugar (glycemia) become too high due to a problem that occurs in the pancreas, which produces low levels/or is uncapable of producing insulin. It is the insulin that reduces the levels of blood sugar, allowing the glucose present in the bloodstream, originating from our food intake, to enter the body cells to be converted into energy. </p>
+        <p class="info">When blood glucose becomes too high (hyperglicemia) for long periods of time, long term complications might occur. Intending to regulate and avoid all that, medicines are prescribed and, depending on the situation, the application of insulin. But, besides that, having good health habits are key to the success in the treatment of diabetes. Take care of your health as a whole is part of the treatment and it helps to maintain a more appropriate health state. </p>
       </div>
       <div class="doris">
-        <button v-on:click="this.$router.push('welcome_doris_instructions') " class="btn btn-info">Falar com a Dóris</button>
+        <button v-on:click="this.$router.push('welcome_doris_instructions') " class="btn btn-info">Chat with Dóris</button>
       </div>
     </div>
 

@@ -4,13 +4,12 @@
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
       <div class="textos">
-        <p>Inicialmente, quero te apresentar alguém muito importante.</p>
-        <p>Isso mesmo, tem uma pessoa que é muito importante e especial para sua vida.</p>
-        <p><b>Sabe quem é? Você!</b></p>
-        <p>Você é a pessoa mais importante para a sua vida e para cuidar da sua saúde.</p>
-        <p>Sabe por quê? Porque quando você consegue cuidar de si mesmo, se sentir bem, ficar feliz e orgulhoso de si
-          mesmo e também com o mundo ao seu redor, a vida fica mais leve e mais tranquila.</p>
-        <p><b>E você sabe como isso se chama? Autocuidado.</b></p>
+        <p>Initially, I want to introduce you someone who is very important.</p>
+        <p>That’s right! There is someone who is very important and special for your life.</p>
+        <p><b>Do you know who it is? It’s You!</b></p>
+        <p>You are the most important person for your life and to take care of your health.</p>
+        <p>Do you know why? That’s because when you can take care of yourself, feel good about yourself, are happy and proud of yourself and with the world around you, life gets lighter and more peaceful.</p>
+        <p><b>Do you know how this is called? Self-care.</b></p>
       </div>
       <router-link class="next-page" :to="{name: 'autocuidado'}"><i class="bi bi-arrow-right-circle-fill"></i>
       </router-link>

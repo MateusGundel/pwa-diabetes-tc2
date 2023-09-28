@@ -1,20 +1,20 @@
 <template>
   <div>
     <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
-    <p class="doris-fala">Sobre o que você gostaria de conversar comigo?</p>
+    <p class="doris-fala">What would you like to talk about with me?</p>
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <card-item title="Alimentação" link="/doris"></card-item>
+      <card-item title="Feeding" link="/doris"></card-item>
     </div>
     <div class="col-sm-12">
-      <card-item title="Atividade Física" link="/doris"></card-item>
+      <card-item title="Physical Activity" link="/doris"></card-item>
     </div>
     <div class="col-sm-12">
-      <card-item title="Rótulos" link="/doris"></card-item>
+      <card-item title="Labels" link="/doris"></card-item>
     </div>
     <div class="col-sm-12">
-      <card-item title="Pé diabético" link="/doris"></card-item>
+      <card-item title="Diabetic Foot" link="/doris"></card-item>
     </div>
   </div>
 </template>

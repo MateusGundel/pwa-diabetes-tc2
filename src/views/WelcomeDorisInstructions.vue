@@ -4,13 +4,11 @@
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
       <div class="textos">
-        <p>Preciso te passar algumas informações rápidas.</p>
-        <p>Quando você me perguntar alguma coisa no chat, eu irei me comunicar com você através de texto da fala
-          também!</p>
-        <p>Se você não quiser me ouvir, você pode clicar no pause <i class="bi bi-pause-circle"></i> ou também no botão
-          de volume <i class="bi bi-volume-up-fill"></i> no começo do chat.</p>
+        <p>I need to give you a few quick information.</p>
+        <p>When you ask me something in the chat, I will communicate with you by text and speaking too! </p>
+        <p>If you don’t want to listen to me, you can click pause  <i class="bi bi-pause-circle"></i> or the volume button <i class="bi bi-volume-up-fill"></i> in the beginning of the chat.</p>
         <img src="../assets/images/instrucao-1.png">
-        <p>Para interagir comigo, pode usar os botões com as sugestões ou então escrever alguma coisa.</p>
+        <p>To interact with me, you can use the buttons with the suggestions, or you can type something.</p>
       </div>
       <router-link class="next-page" :to="{name: 'home'}"><i class="bi bi-arrow-right-circle-fill"></i>
       </router-link>

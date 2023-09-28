@@ -1,7 +1,7 @@
 <template>
   <div class="entry background-app">
     <img class="logo-app" src="../assets/images/logo-text.png">
-    <router-link class="btn btn-info" :to="{name: 'entry_menu'}">Entrar</router-link>
+    <router-link class="btn btn-info" :to="{name: 'entry_menu'}">Start</router-link>
   </div>
 </template>
 

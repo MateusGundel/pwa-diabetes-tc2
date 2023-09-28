@@ -4,10 +4,8 @@
     <div class="body">
       <img class="doris-image" src="../assets/images/doris-sozinha.jpg">
       <div class="doris-fala">
-        <p class="">Olá, eu sou a Dóris.</p>
-        <p class="">Sou uma assistente virtual e vou conversar com você. Estou aqui para te
-          mostrar dicas e informações que vão te ajudar a cuidar da sua saúde e da diabetes. Minha missão é contribuir
-          para o seu bem-estar e sua qualidade de vida.</p>
+        <p class="">Hello, I’m Dóris</p>
+        <p class="">I’m here to show you tips and information that are going to help you to take care of your health and the diabetes. My mission is to assist with your well-being and your quality of life.</p>
       </div>
       <router-link class="next-page" :to="{name: 'welcome_doris_voce'}"><i class="bi bi-arrow-right-circle-fill"></i>
       </router-link>
